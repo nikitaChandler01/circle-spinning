@@ -1,5 +1,5 @@
-import { EventsWidget } from '@widgets/EventsWidget';
 import React from 'react';
+import { EventsWidget } from '@widgets/EventsWidget';
 
 const MainPage = () => {
   return (

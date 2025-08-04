@@ -48,13 +48,11 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
   const scssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
-      isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-      cssLoaderWithModules,
+      'style-loader',
+      'css-loader',
       {
         loader: 'sass-loader',
-        options: {
-          api: 'modern-compiler',
-        },
+        options: { api: 'modern-compiler' },
       },
     ],
   };
@@ -81,5 +79,5 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
 
   const babelLoader = babelBuildLoader(options);
 
-  return [assetLoader, svgrLoader, scssLoader, cssLoader, tsLoader];
+  return [assetLoader, svgrLoader, cssLoader, scssLoader, tsLoader];
 }

@@ -1,17 +1,15 @@
-import './TransparentCard.scss';
+import './TransparentCard.sass';
 
 interface ITransparentCard {
   title: string;
   content: string;
 }
 
-const TransparentCard = ({ title, content }: ITransparentCard) => {
-  return (
-    <div className="transparent-card">
-      <h2 className="transparent-card__title">{title}</h2>
-      <p className="transparent-card__content">{content}</p>
-    </div>
-  );
-};
+export const TransparentCard = ({ title, content }: ITransparentCard) => (
+  <div className="transparent-card">
+    <h3 className="transparent-card__title">{title}</h3>
+    <div className="transparent-card__content">{content}</div>
+  </div>
+);
 
 export default TransparentCard;
