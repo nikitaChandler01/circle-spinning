@@ -5,7 +5,7 @@ import TransparentCard from '@shared/ui/Cards/TransparentCard';
 
 const EventsWidget = () => {
   return (
-    <div>
+    <div style={{ display: 'flex', gap: '80px' }}>
       {EVENTS_MOCKS['1'].map((event, index) => (
         <TransparentCard key={index} title={`${event.year}`} content={event.eventDesc} />
       ))}

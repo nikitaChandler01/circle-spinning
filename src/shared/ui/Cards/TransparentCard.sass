@@ -1,8 +1,16 @@
 .transparent-card 
-    max-width: 400px;
-    min-width: 320px;
+    flex: 1 0 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    &:nth-child(2n)
+        flex: 1 0 400px;
+
 
     &__title 
+        padding: 0;
+        margin: 0;
         font-size: 25px;
         color: #3877EE !important;
     
@@ -10,4 +18,6 @@
 
     &__content 
         font-size: 20px;
-    
+
+
+
