@@ -1,0 +1,14 @@
+.transparent-card {
+    max-width: 400px;
+    min-width: 320px;
+
+    &__title {
+        font-size: 25px;
+        color: #3877EE;
+    }
+
+
+    &__content {
+        font-size: 20px;
+    }
+}

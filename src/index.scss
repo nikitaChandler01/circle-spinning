@@ -1,7 +1,25 @@
-    @mixin grid-columns($columns: 24, $suffix: '') {
-        @for $i from 1 through $columns {
-            .col#{$suffix}-#{$i} {
-                width: (100% / $columns) * $i;
-            }
-        }
-    }
+   @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+   @mixin grid-columns($columns: 24, $suffix: '') {
+       @for $i from 1 through $columns {
+           .col#{$suffix}-#{$i} {
+               width: (100% / $columns) * $i;
+           }
+       }
+   }
+
+
+
+   :root {
+       --bg-primary: #FFFFFF;
+       --font-color: #42567A;
+
+   }
+
+
+   html {
+       font-family: "PT Sans", sans-serif;
+       color: var(--font-color);
+       font-weight: 400;
+   }
