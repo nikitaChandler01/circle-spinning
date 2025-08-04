@@ -1,7 +1,5 @@
-import AppRoter from './router/AppRouter';
-
 function App() {
-  return <AppRoter />;
+  return <div>123</div>;
 }
 
 export default App;

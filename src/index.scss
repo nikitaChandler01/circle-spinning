@@ -1,0 +1,9 @@
+:root {
+    @mixin grid-columns($columns: 24, $suffix: '') {
+        @for $i from 1 through $columns {
+            .col#{$suffix}-#{$i} {
+                width: (100% / $columns) * $i;
+            }
+        }
+    }
+}

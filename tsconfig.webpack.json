@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["webpack.config.ts", "config/**/*"],
+  "compilerOptions": {
+    "module": "CommonJS"
+  }
+}
