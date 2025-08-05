@@ -65,7 +65,7 @@ $buttons-size: calc(var(--span-size) / 2);
 
     &-button-next::after,
     &-button-prev::after {
-        content: url('./assets/Arrow.svg');
+        content: url('../../../assets/Arrow.svg');
         height: 10px;
         width: clamp(5px, 0.3vw, 0.3vw);
         font-size: 0;

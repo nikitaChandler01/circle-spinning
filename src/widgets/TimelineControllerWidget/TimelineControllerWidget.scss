@@ -1,0 +1,16 @@
+.timeline-control {
+    display: flex;
+    flex-direction: column;
+    padding: 0 var(--span-size);
+
+
+    & p {
+        margin: 0 0 20px 0;
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 20px
+    }
+
+}

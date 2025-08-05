@@ -4,7 +4,7 @@ $border-value: 1px solid rgba(0, 0, 0, 0.10);
     position: absolute;
     top: 0;
     bottom: 0;
-    height: calc(100vh - 2px);
+    height: calc(1080px - 2px);
     z-index: 10;
     border-collapse: collapse;
     pointer-events: none;
@@ -15,7 +15,7 @@ $border-value: 1px solid rgba(0, 0, 0, 0.10);
     &__upper {
         display: flex;
         border-bottom: $border-value;
-        height: calc(100vh * (480 / 1080));
+        height: calc(1080px * (480 / 1080));
 
         & .default-grid-box:first-child {
             border-right: $border-value;
@@ -24,7 +24,7 @@ $border-value: 1px solid rgba(0, 0, 0, 0.10);
 
     &__down {
         display: flex;
-        height: calc(100vh * (600 / 1080) - 1px);
+        height: calc(1080px * (600 / 1080) - 1px);
 
         & .default-grid-box:first-child {
             border-right: $border-value;

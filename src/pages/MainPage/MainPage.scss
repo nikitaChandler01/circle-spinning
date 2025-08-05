@@ -1,21 +1,27 @@
 $padding-top-calc: calc((170 / 1080) * 100vh);
 
 .main-page {
-    height: 100vh;
+    height: 1080px;
     padding-left: calc(var(--span-size) * 4);
     padding-right: calc(var(--span-size) * 2);
     box-sizing: border-box;
     position: relative;
 
-    &__widget-wrapper {
+    &__widgets-wrapper {
         display: flex;
         flex-direction: column;
-        gap: 36.4vh;
+        gap: 393px;
         height: 100%;
         padding-top: clamp($padding-top-calc, $padding-top-calc, $padding-top-calc);
         padding-bottom: clamp(104px, 9.6vh, 9.6vh);
         width: 100%;
         box-sizing: border-box !important;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 56px
     }
 
 }
