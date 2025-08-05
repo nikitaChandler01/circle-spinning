@@ -13,6 +13,7 @@
 
    :root {
        --bg-primary: #FFFFFF;
+       --bg-creamy: #F4F5F9;
        --font-color: #42567A;
        --font-color-transparent: #42567a80;
        --span-size: calc(100vw / 24)
@@ -23,7 +24,7 @@
        font-family: "PT Sans", sans-serif;
        color: var(--font-color);
        font-weight: 400;
-       background-color: #F4F5F9;
+       background-color: var(--bg-creamy);
    }
 
    body {

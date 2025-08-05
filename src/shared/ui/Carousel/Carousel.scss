@@ -15,7 +15,7 @@ $buttons-size: calc(var(--span-size) / 2);
         top: 0;
         bottom: 0;
         width: var(--span-size);
-        background-color: #f4f5f9;
+        background-color: var(--bg-creamy);
         z-index: 5;
         pointer-events: none;
     }

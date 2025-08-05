@@ -19,6 +19,12 @@ $border-value: 1px solid rgba(0, 0, 0, 0.10);
 
         & .default-grid-box:first-child {
             border-right: $border-value;
+            position: relative;
+
+            & svg {
+                right: -265px;
+                bottom: -265px;
+            }
         }
     }
 
@@ -27,6 +33,9 @@ $border-value: 1px solid rgba(0, 0, 0, 0.10);
         height: calc(1080px * (600 / 1080) - 1px);
 
         & .default-grid-box:first-child {
+
+
+
             border-right: $border-value;
         }
     }

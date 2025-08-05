@@ -1,6 +1,6 @@
 import ReactRefreshTypeScript from 'react-refresh-typescript';
 import { ModuleOptions } from 'webpack';
-import { babelBuildLoader } from './babel/babelBuildLoader';
+import babelBuildLoader from './babel/babelBuildLoader';
 import { BuildOptions } from './types/types';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
@@ -13,24 +13,10 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
     type: 'asset/resource',
   };
 
-  const svgLoader = {
-    test: /\.svg$/i,
-    type: 'asset',
-    resourceQuery: /url/,
-  };
   const svgrLoader = {
     test: /\.svg$/i,
     issuer: /\.[jt]sx?$/,
-    resourceQuery: { not: [/url/] },
-    use: ['@svgr/webpack'],
-  };
-  const cssLoaderWithModules = {
-    loader: 'css-loader',
-    options: {
-      modules: {
-        localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:8]',
-      },
-    },
+    use: [{ loader: '@svgr/webpack', options: { icon: true } }],
   };
 
   const scssLoader = {
@@ -65,7 +51,5 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
     ],
   };
 
-  const babelLoader = babelBuildLoader(options);
-
-  return [assetLoader, svgLoader, svgrLoader, cssLoader, scssLoader, tsLoader, babelLoader];
+  return [assetLoader, svgrLoader, cssLoader, scssLoader, tsLoader];
 }

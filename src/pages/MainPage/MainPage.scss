@@ -16,6 +16,13 @@ $padding-top-calc: calc((170 / 1080) * 100vh);
         padding-bottom: clamp(104px, 9.6vh, 9.6vh);
         width: 100%;
         box-sizing: border-box !important;
+
+        & svg {
+            right: 265px;
+            bottom: 0;
+        }
+
+
     }
 
     &__content {
