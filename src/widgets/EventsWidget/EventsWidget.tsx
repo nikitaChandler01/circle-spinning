@@ -1,15 +1,15 @@
 import React from 'react';
-
+import './EventsWidget.scss';
 import { EVENTS_MOCKS } from '@shared/mocks/EventsMocks';
 import TransparentCard from '@shared/ui/Cards/TransparentCard';
+import Carousel from '@shared/ui/Carousel/Carousel';
 
 const EventsWidget = () => {
   return (
-    <div style={{ display: 'flex', gap: '80px' }}>
-      {EVENTS_MOCKS['1'].map((event, index) => (
-        <TransparentCard key={index} title={`${event.year}`} content={event.eventDesc} />
-      ))}
-    </div>
+    <Carousel
+      items={EVENTS_MOCKS['1']}
+      itemRenderer={(item) => <TransparentCard title={`${item.year}`} content={item.eventDesc} />}
+    />
   );
 };
 

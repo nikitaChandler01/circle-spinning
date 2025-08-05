@@ -1,23 +1,22 @@
-.transparent-card 
-    flex: 1 0 320px;
+.transparent-card {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 15px;
 
-    &:nth-child(2n)
-        flex: 1 0 400px;
+    &:nth-child(2n) {}
 
 
-    &__title 
+    &__title {
         padding: 0;
         margin: 0;
         font-size: 25px;
         color: #3877EE !important;
-    
+    }
 
 
-    &__content 
+
+    &__content {
         font-size: 20px;
-
-
-
+    }
+}

@@ -29,6 +29,8 @@
     // "no-unused-vars": "warn",
     "@typescript-eslint/no-unused-vars": ["warn", { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }],
     "semi": 2,
+    //удалить
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "quotes": [
       "error",
       "single",

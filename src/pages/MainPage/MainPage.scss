@@ -1,0 +1,11 @@
+.main-page {
+    padding-left: calc(var(--span-size) * 4);
+    padding-right: calc(var(--span-size) * 2);
+    box-sizing: border-box;
+
+    &__widget-wrapper {
+        width: 100%;
+        box-sizing: border-box !important;
+    }
+
+}

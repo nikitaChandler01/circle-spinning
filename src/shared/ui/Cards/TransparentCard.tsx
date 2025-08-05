@@ -1,4 +1,4 @@
-import './TransparentCard.sass';
+import './TransparentCard.scss';
 
 interface ITransparentCard {
   title: string;
