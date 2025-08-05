@@ -13,29 +13,17 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
     type: 'asset/resource',
   };
 
+  const svgLoader = {
+    test: /\.svg$/i,
+    type: 'asset',
+    resourceQuery: /url/,
+  };
   const svgrLoader = {
     test: /\.svg$/i,
     issuer: /\.[jt]sx?$/,
-    use: [
-      {
-        loader: '@svgr/webpack',
-        options: {
-          icon: true,
-          svgrConfig: {
-            plugins: [
-              {
-                name: 'convertColors',
-                params: {
-                  currentColor: true,
-                },
-              },
-            ],
-          },
-        },
-      },
-    ],
+    resourceQuery: { not: [/url/] },
+    use: ['@svgr/webpack'],
   };
-
   const cssLoaderWithModules = {
     loader: 'css-loader',
     options: {
@@ -79,5 +67,5 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
 
   const babelLoader = babelBuildLoader(options);
 
-  return [assetLoader, svgrLoader, cssLoader, scssLoader, tsLoader];
+  return [assetLoader, svgLoader, svgrLoader, cssLoader, scssLoader, tsLoader, babelLoader];
 }
