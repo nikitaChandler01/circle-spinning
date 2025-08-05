@@ -3,8 +3,15 @@
     padding-left: calc(var(--span-size) * 4);
     padding-right: calc(var(--span-size) * 2);
     box-sizing: border-box;
+    position: relative;
 
     &__widget-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        padding-top: 170px;
+        padding-bottom: 104px;
         width: 100%;
         box-sizing: border-box !important;
     }
