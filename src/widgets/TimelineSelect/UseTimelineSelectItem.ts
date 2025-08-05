@@ -13,19 +13,17 @@ export const useTimelineSelectItem = ({}: IUseTimelineSelectItem) => {
 
   const onMouseEnter = (id: number) => {
     gsap.to(`#item-${id}`, {
-      position: 'absolute',
-      width: 56,
-      height: 56,
+      scale: 6,
       duration: 0.3,
     });
   };
 
   const onMouseLeave = (id: number) => {
-    gsap.to(`#item-${id}`, {
-      width: 6,
-      height: 6,
-      duration: 0.3,
-    });
+    // gsap.to(`#item-${id}`, {
+    //   width: 6,
+    //   height: 6,
+    //   duration: 0.3,
+    // });
   };
 
   return { onMouseEnter, onMouseLeave };

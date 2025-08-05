@@ -4,7 +4,6 @@ import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import React, { useEffect } from 'react';
 import './TimelineSelect.scss';
 import { useTimelineMoveSelect } from './UseTimelineMoveSelect';
-import { useTimelineSelectItem } from './UseTimelineSelectItem';
 gsap.registerPlugin(MotionPathPlugin);
 
 interface ITimelineSelect {
@@ -12,8 +11,7 @@ interface ITimelineSelect {
 }
 
 const TimelineSelect = ({ refPath }: ITimelineSelect) => {
-  useTimelineMoveSelect({ refPath });
-  const { onMouseEnter, onMouseLeave } = useTimelineSelectItem({});
+  const { onMouseEnter, onMouseLeave } = useTimelineMoveSelect({ refPath });
 
   useEffect(() => {}, []);
 
