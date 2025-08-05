@@ -1,0 +1,37 @@
+$border-value: 1px solid rgba(0, 0, 0, 0.10);
+
+.grid-box-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: calc(100vh - 2px);
+    z-index: 10;
+    border-collapse: collapse;
+    pointer-events: none;
+    width: calc(100% - var(--span-size) * 6);
+    border-left: $border-value;
+    border-right: $border-value;
+
+    &__upper {
+        display: flex;
+        border-bottom: $border-value;
+        height: calc(100vh * (480 / 1080));
+
+        & .default-grid-box:first-child {
+            border-right: $border-value;
+        }
+    }
+
+    &__down {
+        display: flex;
+        height: calc(100vh * (600 / 1080) - 1px);
+
+        & .default-grid-box:first-child {
+            border-right: $border-value;
+        }
+    }
+}
+
+.default-grid-box {
+    width: 50%;
+}
