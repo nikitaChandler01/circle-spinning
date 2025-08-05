@@ -1,3 +1,5 @@
+$padding-top-calc: calc((170 / 1080) * 100vh);
+
 .main-page {
     height: 100vh;
     padding-left: calc(var(--span-size) * 4);
@@ -8,10 +10,10 @@
     &__widget-wrapper {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        gap: 36.4vh;
         height: 100%;
-        padding-top: 170px;
-        padding-bottom: 104px;
+        padding-top: clamp($padding-top-calc, $padding-top-calc, $padding-top-calc);
+        padding-bottom: clamp(104px, 9.6vh, 9.6vh);
         width: 100%;
         box-sizing: border-box !important;
     }

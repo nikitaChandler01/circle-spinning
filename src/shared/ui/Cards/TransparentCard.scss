@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: clamp(15px, 1.3vh, 1.3vh);
 
     &:nth-child(2n) {}
 
@@ -12,11 +12,11 @@
         font-weight: 400;
         padding: 0;
         margin: 0;
-        font-size: 25px;
+        font-size: clamp(25px, 1.3vw, 1.3vw);
         color: #3877EE;
     }
 
     &__content {
-        font-size: 20px;
+        font-size: clamp(20px, 1vw, 1vw);
     }
 }

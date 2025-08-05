@@ -13,12 +13,7 @@ interface ICarousel<T> {
 
 const Carousel = <T,>({ items, itemRenderer }: ICarousel<T>) => {
   return (
-    <Swiper
-      navigation={true}
-      spaceBetween={80}
-      slidesPerView={'auto'}
-      modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-    >
+    <Swiper navigation={true} slidesPerView={'auto'} modules={[Navigation, Pagination, Mousewheel, Keyboard]}>
       {items.map((item, index) => (
         <SwiperSlide key={index}>{itemRenderer(item)}</SwiperSlide>
       ))}
