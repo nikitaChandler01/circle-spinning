@@ -3,8 +3,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
-import './Carousel.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import './Carousel.scss';
 
 interface ICarousel<T> {
   items: T[];
@@ -13,7 +13,12 @@ interface ICarousel<T> {
 
 const Carousel = <T,>({ items, itemRenderer }: ICarousel<T>) => {
   return (
-    <Swiper navigation={true} slidesPerView={'auto'} modules={[Navigation, Pagination, Mousewheel, Keyboard]}>
+    <Swiper
+      className="my-carousel"
+      navigation={true}
+      slidesPerView={'auto'}
+      modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+    >
       {items.map((item, index) => (
         <SwiperSlide key={index}>{itemRenderer(item)}</SwiperSlide>
       ))}
