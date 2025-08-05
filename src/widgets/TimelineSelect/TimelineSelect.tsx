@@ -11,9 +11,7 @@ interface ITimelineSelect {
 }
 
 const TimelineSelect = ({ refPath }: ITimelineSelect) => {
-  const { onMouseEnter, onMouseLeave } = useTimelineMoveSelect({ refPath });
-
-  useEffect(() => {}, []);
+  const { onMouseEnter, onMouseLeave, onClick } = useTimelineMoveSelect({ refPath });
 
   return (
     <div style={{ height: 0 }}>
@@ -22,6 +20,7 @@ const TimelineSelect = ({ refPath }: ITimelineSelect) => {
           id={`item-${item.id}`}
           key={item.id}
           className="timeline-option"
+          onClick={() => onClick(item.id)}
           onMouseEnter={() => onMouseEnter(item.id)}
           onMouseLeave={() => onMouseLeave(item.id)}
         >
