@@ -3,7 +3,7 @@ $buttons-size: calc(var(--span-size) / 2);
 
 .swiper {
     width: 100%;
-    padding: 0 80px;
+    padding: 0 var(--span-size);
     box-sizing: border-box !important;
     overflow: hidden;
     position: relative;
