@@ -1,32 +1,32 @@
 import { TIMELINE_MOCKS } from '@shared/mocks/TimelineMocks';
 import gsap from 'gsap';
-import { useEffect, useRef } from 'react';
+import { useRef, useState } from 'react';
 
-interface IUseTimelineSelectItem {}
+interface IUseTimelineSelectItem {
+  // Добавьте здесь необходимые пропсы, если они есть
+}
 
 export const useTimelineSelectItem = ({}: IUseTimelineSelectItem) => {
   const timelineMocksKeys = Object.keys(TIMELINE_MOCKS);
   const highlightAnim = useRef<gsap.core.Tween | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
-  useEffect(() => {
-    const firstId = TIMELINE_MOCKS[0]?.id;
-    if (firstId)
-      highlightAnim.current = gsap.to(`#item-${firstId}`, {
-        position: 'absolute',
-        width: 56,
-        height: 56,
-        borderColor: '#303e5880',
-        borderWidth: 1,
-        borderStyle: 'solid',
-        background: 'var(--bg-creamy)',
-        duration: 0.4,
-        ease: 'power1.inOut',
-      });
-  }, []);
-
-  const onMouseEnter = () => {
-    if (highlightAnim.current) {
-      highlightAnim.current.kill();
-    }
+  const onMouseEnter = (id: number) => {
+    gsap.to(`#item-${id}`, {
+      position: 'absolute',
+      width: 56,
+      height: 56,
+      duration: 0.3,
+    });
   };
+
+  const onMouseLeave = (id: number) => {
+    gsap.to(`#item-${id}`, {
+      width: 6,
+      height: 6,
+      duration: 0.3,
+    });
+  };
+
+  return { onMouseEnter, onMouseLeave };
 };

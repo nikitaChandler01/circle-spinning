@@ -13,14 +13,22 @@ interface ITimelineSelect {
 
 const TimelineSelect = ({ refPath }: ITimelineSelect) => {
   useTimelineMoveSelect({ refPath });
-  useTimelineSelectItem({});
+  const { onMouseEnter, onMouseLeave } = useTimelineSelectItem({});
 
   useEffect(() => {}, []);
 
   return (
     <div style={{ height: 0 }}>
       {TIMELINE_MOCKS.map((item) => (
-        <div id={`item-${item.id}`} key={item.id} className="timeline-option" />
+        <div
+          id={`item-${item.id}`}
+          key={item.id}
+          className="timeline-option"
+          onMouseEnter={() => onMouseEnter(item.id)}
+          onMouseLeave={() => onMouseLeave(item.id)}
+        >
+          {item.id}
+        </div>
       ))}
     </div>
   );
