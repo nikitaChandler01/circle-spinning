@@ -1,17 +1,18 @@
 import { TIMELINE_MOCKS } from '@shared/mocks/TimelineMocks';
 import gsap from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
-import React, { useEffect } from 'react';
+import React from 'react';
 import './TimelineSelect.scss';
 import { useTimelineMoveSelect } from './UseTimelineMoveSelect';
 gsap.registerPlugin(MotionPathPlugin);
 
 interface ITimelineSelect {
+  currentAge: number;
   refPath: React.RefObject<SVGCircleElement>;
 }
 
-const TimelineSelect = ({ refPath }: ITimelineSelect) => {
-  const { onMouseEnter, onMouseLeave, onClick } = useTimelineMoveSelect({ refPath });
+const TimelineSelect = ({ currentAge, refPath }: ITimelineSelect) => {
+  const { onMouseEnter, onMouseLeave, onClick } = useTimelineMoveSelect({ currentAge, refPath });
 
   return (
     <div style={{ height: 0 }}>

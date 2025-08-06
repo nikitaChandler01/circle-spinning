@@ -15,7 +15,7 @@ const MainPage = () => {
   const ageId = TIMELINE_MOCKS[currentAge - 1].id;
   return (
     <div className="main-page">
-      <TimelineSelect refPath={circleRef} />
+      <TimelineSelect refPath={circleRef} currentAge={currentAge} />
       <PageGrid circleRef={circleRef} />
       <div className="main-page__widgets-wrapper">
         <HighlightTitle text={pageTitle} />

@@ -1,17 +1,18 @@
-import gsap from 'gsap';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import { TIMELINE_MOCKS } from '@shared/mocks/TimelineMocks';
+import gsap from 'gsap';
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
+import React, { useEffect, useRef, useState } from 'react';
 gsap.registerPlugin(MotionPathPlugin);
 
 interface IUseTimelineMoveSelect {
+  currentAge: number;
   refPath: React.RefObject<SVGCircleElement>;
 }
 
-export const useTimelineMoveSelect = ({ refPath }: IUseTimelineMoveSelect) => {
+export const useTimelineMoveSelect = ({ currentAge, refPath }: IUseTimelineMoveSelect) => {
   const firstId = TIMELINE_MOCKS[0].id;
   const orbitAnim = useRef<gsap.core.Tween | null>(null);
-  const highlightAnim = useRef<gsap.core.Tween | null>(null);
+  //todo currentAge менять а не selectedId. состояние от состояния быть не должно
   const [selectedId, setSelectedId] = useState<string | null>(firstId.toString());
   const onMouseEnter = (id: number) => {
     gsap.to(`#item-${id}`, {
@@ -60,7 +61,11 @@ export const useTimelineMoveSelect = ({ refPath }: IUseTimelineMoveSelect) => {
       scale: 8,
       boxShadow: '0 0 0 0.125px #303E5880',
     });
-  }, [firstId]);
+  }, []);
+
+  useEffect(() => {
+    onClick(currentAge);
+  }, [currentAge]);
 
   const onClick = (id: number) => {
     if (id.toString() === selectedId) return;
