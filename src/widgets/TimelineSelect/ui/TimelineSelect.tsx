@@ -2,8 +2,8 @@ import { TIMELINE_MOCKS } from '@shared/mocks/TimelineMocks';
 import gsap from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import React from 'react';
-import './TimelineSelect.scss';
 import { useTimelineMoveSelect } from '../model';
+import './TimelineSelect.scss';
 gsap.registerPlugin(MotionPathPlugin);
 
 interface ITimelineSelect {

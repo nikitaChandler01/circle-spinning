@@ -1,1 +1,1 @@
-export { default as EventsWidget } from './EventsWidget';
+export { EventsWidget } from './ui';
