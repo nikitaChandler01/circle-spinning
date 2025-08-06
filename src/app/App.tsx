@@ -1,7 +1,13 @@
 import { MainPage } from '@pages/MainPage';
+import React from 'react';
 
 function App() {
-  return <MainPage />;
+  return (
+    <React.Fragment>
+      <MainPage />
+      <MainPage />
+    </React.Fragment>
+  );
 }
 
 export default App;

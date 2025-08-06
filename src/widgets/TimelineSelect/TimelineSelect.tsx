@@ -12,12 +12,13 @@ interface ITimelineSelect {
 }
 
 const TimelineSelect = ({ currentAge, refPath }: ITimelineSelect) => {
-  const { onMouseEnter, onMouseLeave, onClick } = useTimelineMoveSelect({ currentAge, refPath });
+  const { onMouseEnter, onMouseLeave, onClick, dotsRef } = useTimelineMoveSelect({ currentAge, refPath });
 
   return (
     <div style={{ height: 0 }}>
-      {TIMELINE_MOCKS.map((item) => (
+      {TIMELINE_MOCKS.map((item, i) => (
         <div
+          ref={(el) => (dotsRef.current[i] = el)}
           id={`item-${item.id}`}
           key={item.id}
           className="timeline-option"
