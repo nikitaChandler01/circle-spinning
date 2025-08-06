@@ -18,7 +18,7 @@ const TimelineSelect = ({ currentAge, refPath }: ITimelineSelect) => {
     <div style={{ height: 0 }}>
       {TIMELINE_MOCKS.map((item, i) => (
         <div
-          ref={(el) => (dotsRef.current[i] = el)}
+          ref={(el) => (dotsRef.current[item.id] = el)}
           id={`item-${item.id}`}
           key={item.id}
           className="timeline-option"

@@ -2,6 +2,7 @@ import { TIMELINE_MOCKS } from '@shared/mocks/TimelineMocks';
 import gsap from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import React, { useEffect, useRef, useState } from 'react';
+import { activeAndHoveredSelectStyles } from './constants';
 gsap.registerPlugin(MotionPathPlugin);
 
 interface IUseTimelineMoveSelect {
@@ -12,22 +13,20 @@ interface IUseTimelineMoveSelect {
 export const useTimelineMoveSelect = ({ currentAge, refPath }: IUseTimelineMoveSelect) => {
   const firstId = TIMELINE_MOCKS[0].id;
   const orbitAnim = useRef<gsap.core.Tween | null>(null);
-  const dotsRef = useRef<(HTMLDivElement | null)[]>([]);
-
-  console.log('dotsRef.current', dotsRef.current);
+  const dotsRef = useRef<Record<string | number, HTMLDivElement | null>>({});
 
   //todo currentAge менять а не selectedId. состояние от состояния быть не должно
   const [selectedId, setSelectedId] = useState<string | null>(firstId.toString());
   const onMouseEnter = (id: number) => {
-    //todo currentAge на 1 больше чем id
-    gsap.to(dotsRef.current[id], {
-      duration: 0.3,
-      ease: 'power2.out',
-      background: 'var(--bg-creamy)',
-      color: 'var(--font-color)',
-      scale: 8,
-      boxShadow: '0 0 0 0.125px #303E5880',
-    });
+    if (id !== currentAge)
+      gsap.to(dotsRef.current[id], {
+        duration: 0.3,
+        ease: 'power2.out',
+        background: 'var(--bg-creamy)',
+        color: 'var(--font-color)',
+        scale: 8,
+        boxShadow: '0 0 0 0.125px #303E5880',
+      });
   };
 
   const onMouseLeave = (id: number) => {
@@ -46,7 +45,7 @@ export const useTimelineMoveSelect = ({ currentAge, refPath }: IUseTimelineMoveS
       if (orbitAnim?.current) {
         orbitAnim.current.kill();
       }
-      orbitAnim.current = gsap.to(dotsRef.current, {
+      orbitAnim.current = gsap.to(Object.values(dotsRef.current), {
         motionPath: {
           path: refPath.current,
           align: refPath.current,
@@ -58,30 +57,24 @@ export const useTimelineMoveSelect = ({ currentAge, refPath }: IUseTimelineMoveS
         duration: 0,
       });
     }
-    gsap.to(`#item-${firstId}`, {
-      duration: 0.3,
-      ease: 'power2.out',
-      background: 'var(--bg-creamy)',
-      color: 'var(--font-color)',
-      scale: 8,
-      boxShadow: '0 0 0 0.125px #303E5880',
-    });
+    gsap.to(`#item-${firstId}`, activeAndHoveredSelectStyles);
   }, []);
 
   useEffect(() => {
     onClick(currentAge);
+
+    return () => {
+      onMouseLeave(currentAge);
+    };
   }, [currentAge]);
 
   const onClick = (id: number) => {
+    //todo currentAge менять а не selectedId. состояние от состояния быть не должно
+    //todo currentAge менять а не selectedId. состояние от состояния быть не должно
+    //todo currentAge менять а не selectedId. состояние от состояния быть не должно
+
     if (id.toString() === selectedId) return;
-    gsap.to(dotsRef.current[id], {
-      duration: 0.3,
-      ease: 'power2.out',
-      background: 'var(--bg-creamy)',
-      color: 'var(--font-color)',
-      scale: 8,
-      boxShadow: '0 0 0 0.125px #303E5880',
-    });
+    gsap.to(dotsRef.current[id], activeAndHoveredSelectStyles);
     gsap.to(`#item-${selectedId}`, {
       scale: 1,
       duration: 0.3,
@@ -89,7 +82,7 @@ export const useTimelineMoveSelect = ({ currentAge, refPath }: IUseTimelineMoveS
       ease: 'power2.out',
     });
     if (refPath.current)
-      orbitAnim.current = gsap.to(dotsRef.current, {
+      orbitAnim.current = gsap.to(Object.values(dotsRef.current), {
         motionPath: {
           path: refPath.current,
           align: refPath.current,
