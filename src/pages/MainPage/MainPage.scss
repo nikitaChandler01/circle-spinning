@@ -12,6 +12,7 @@ $padding-top-calc: calc((170 / 1080) * 100vh);
         display: flex;
         flex-direction: column;
         gap: calc(100vh * (393 / 1080));
+        justify-content: space-between;
         height: 100vh;
         padding-top: calc(100vh * (170 / 1080));
         padding-bottom: calc(100vh * (104 / 1080));
