@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import React, { useEffect, useRef } from 'react';
 import { decreaseTarget, increaseTarget, moveForPath } from '../service';
+import { rotationCircleDuration } from '../constants';
 gsap.registerPlugin(MotionPathPlugin);
 
 interface IUseTimelineMoveSelect {
@@ -25,9 +26,9 @@ export const useTimelineMoveSelect = ({ setCurrentAgeId, currentAgeId, refPath }
       orbitAnim.current = moveForPath({
         path: refPath.current,
         elements: Object.values(dotsRef.current),
-        startPoint: currentAgeId,
-        endPoint: currentAgeId,
-        duration: 0.6,
+        startPoint: TIMELINE_MOCKS.findIndex((item) => item.id === currentAgeId),
+        endPoint: TIMELINE_MOCKS.findIndex((item) => item.id === currentAgeId),
+        duration: rotationCircleDuration,
         ease: 'power1.out',
       });
     }
@@ -62,8 +63,8 @@ export const useTimelineMoveSelect = ({ setCurrentAgeId, currentAgeId, refPath }
       orbitAnim.current = moveForPath({
         path: refPath.current,
         elements: Object.values(dotsRef.current),
-        startPoint: prevId,
-        endPoint: newId,
+        startPoint: TIMELINE_MOCKS.findIndex((item) => item.id === prevId),
+        endPoint: TIMELINE_MOCKS.findIndex((item) => item.id === newId),
         duration: 0.6,
         ease: 'power1.out',
       });

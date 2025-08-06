@@ -8,7 +8,7 @@ export const activeAndHoveredSelectStyles = {
 };
 
 export const increasedSelectedItemStyles = {
-  scale: 1.2,
+  scale: 1,
   duration: 0.3,
   background: 'var(--bg-creamy)',
   ease: 'power2.out',
@@ -20,3 +20,5 @@ export const decreasedSelectedItemStyles = {
   background: 'var(--font-color)',
   ease: 'power2.out',
 };
+
+export const rotationCircleDuration = 0.5;

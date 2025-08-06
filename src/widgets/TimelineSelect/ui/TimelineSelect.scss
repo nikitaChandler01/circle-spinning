@@ -1,6 +1,6 @@
 .timeline-option {
     position: relative;
-    z-index: 20;
+    z-index: 11;
     width: 6px;
     height: 6px;
     background: var(--font-color);
@@ -13,5 +13,20 @@
     vertical-align: middle;
     font-size: calc(20px / 8);
     cursor: pointer;
+    z-index: 20;
+
+
+    & .appearing-disappearing-text {
+        position: absolute;
+        left: -11px;
+        display: flex;
+        justify-content: center;
+        width: fit-content;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 20px;
+        scale: 0.125;
+        font-weight: bold;
+    }
 
 }

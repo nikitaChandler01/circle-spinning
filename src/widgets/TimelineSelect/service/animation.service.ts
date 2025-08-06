@@ -1,5 +1,5 @@
 import gsap from 'gsap';
-import { activeAndHoveredSelectStyles, decreasedSelectedItemStyles } from '../constants';
+import { activeAndHoveredSelectStyles, decreasedSelectedItemStyles, rotationCircleDuration } from '../constants';
 
 //по сути в shared можно создать класс animation.service
 //там будет определен gsap и подключаться нужные плагины
@@ -28,7 +28,7 @@ export const moveForPath = ({
   elements,
   startPoint,
   endPoint,
-  duration = 0.5,
+  duration = rotationCircleDuration,
   ease = 'power1.out',
 }: IMoveForPath) =>
   gsap.to(elements, {
@@ -37,8 +37,8 @@ export const moveForPath = ({
       align: path,
       autoRotate: false,
       alignOrigin: [0.5, 0.5],
-      start: (i) => (i + 0.5 - startPoint + 1) / 6,
-      end: (i) => (i + 0.5 - endPoint + 1) / 6,
+      start: (i) => (i + 0.5 - startPoint) / 6,
+      end: (i) => (i + 0.5 - endPoint) / 6,
     },
     duration,
     ease,

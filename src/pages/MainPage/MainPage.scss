@@ -20,8 +20,10 @@ $padding-top-calc: calc((170 / 1080) * 100vh);
         box-sizing: border-box !important;
 
         & svg {
-            right: 265px;
-            bottom: 0;
+            position: absolute;
+            z-index: 10;
+            top: 215px;
+            left: 452px;
         }
 
 
