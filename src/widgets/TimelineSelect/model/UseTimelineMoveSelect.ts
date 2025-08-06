@@ -16,15 +16,6 @@ export const useTimelineMoveSelect = ({ setCurrentAgeId, currentAgeId, refPath }
   const orbitAnim = useRef<gsap.core.Tween | null>(null);
   const dotsRef = useRef<Record<string | number, HTMLDivElement | null>>({});
   const prevId = useRef<number | null>(null);
-  const onMouseEnter = (id: number) => {
-    if (id !== currentAgeId) increaseTarget(dotsRef.current[id]);
-  };
-
-  const onMouseLeave = (id: number) => {
-    if (currentAgeId !== id) {
-      decreaseTarget(dotsRef.current[id]);
-    }
-  };
 
   useEffect(() => {
     if (refPath.current && currentAgeId) {
@@ -54,6 +45,15 @@ export const useTimelineMoveSelect = ({ setCurrentAgeId, currentAgeId, refPath }
 
   const onClick = (id: number) => {
     setCurrentAgeId(id);
+  };
+  const onMouseEnter = (id: number) => {
+    if (id !== currentAgeId) increaseTarget(dotsRef.current[id]);
+  };
+
+  const onMouseLeave = (id: number) => {
+    if (currentAgeId !== id) {
+      decreaseTarget(dotsRef.current[id]);
+    }
   };
 
   const rotate = (prevId: number, newId: number) => {
