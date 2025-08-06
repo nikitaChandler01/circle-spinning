@@ -10,7 +10,7 @@
 
     &__buttons {
         display: flex;
-        gap: clamp(20px, calc(100vw * (20 / 1920)), calc(100vw * (20 / 1920)));
+        gap: calc(100vw * (20 / 1920));
     }
 
 }

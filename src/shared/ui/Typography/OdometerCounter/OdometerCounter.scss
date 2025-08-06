@@ -2,8 +2,8 @@
     padding: 0;
     margin: 0;
     width: fit-content;
-    font-size: clamp(200px, calc(100vw * (200 / 1920)), calc(100vw * (200 / 1920)));
-    line-height: clamp(160px, calc(100vh * (160 / 1080)), calc(100vh * (160 / 1080)));
+    font-size: calc(100vw * (200 / 1920));
+    line-height: calc(100vh * (160 / 1080));
     font-weight: bold;
     letter-spacing: -0.02em;
     color: #5D5FEF;

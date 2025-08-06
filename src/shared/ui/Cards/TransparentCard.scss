@@ -12,11 +12,11 @@
         font-weight: 400;
         padding: 0;
         margin: 0;
-        font-size: clamp(25px, calc(100vw * (25 / 1920)), calc(100vw * (25 / 1920)));
+        font-size: calc(100vw * (25 / 1920));
         color: var(--blue);
     }
 
     &__content {
-        font-size: clamp(20px, calc(100vw * (20 / 1920)), calc(100vw * (20 / 1920)));
+        font-size: calc(100vw * (20 / 1920));
     }
 }

@@ -13,7 +13,7 @@
         padding: 0;
         text-wrap: wrap;
         margin-left: var(--span-size);
-        font-size: clamp(56px, calc(100vw * (56 / 1920)), calc(100vw * (56 / 1920)));
+        font-size: calc(100vw * (56 / 1920));
         line-height: 120%;
     }
 }
