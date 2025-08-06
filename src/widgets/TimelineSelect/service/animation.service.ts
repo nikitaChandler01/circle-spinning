@@ -23,7 +23,14 @@ export const increaseTarget = (increasingElem: HTMLDivElement | null) =>
 export const decreaseTarget = (increasingElem: HTMLDivElement | null) =>
   gsap.to(increasingElem, decreasedSelectedItemStyles);
 
-export const moveForPath = ({ path, elements, startPoint, endPoint, duration = 0, ease }: IMoveForPath) =>
+export const moveForPath = ({
+  path,
+  elements,
+  startPoint,
+  endPoint,
+  duration = 0.5,
+  ease = 'power1.out',
+}: IMoveForPath) =>
   gsap.to(elements, {
     motionPath: {
       path: path,
