@@ -39,7 +39,7 @@ $buttons-size: calc(var(--span-size) / 2);
     }
 
     &-slide {
-        margin-right: clamp(var(--span-size), 4vw, 4vw);
+        margin-right: var(--span-size);
         width: calc(var(--span-size) * 4);
 
         &:nth-child(2n) {
@@ -67,7 +67,7 @@ $buttons-size: calc(var(--span-size) / 2);
     &-button-prev::after {
         content: url('../../../assets/Arrow.svg');
         height: 10px;
-        width: clamp(5px, 0.3vw, 0.3vw);
+        width: 5px;
         font-size: 0;
         margin-left: -1px;
         margin-top: -1px;

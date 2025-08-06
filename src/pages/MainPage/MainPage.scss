@@ -13,8 +13,9 @@ $padding-top-calc: calc((170 / 1080) * 100vh);
         flex-direction: column;
         gap: 393px;
         height: 100%;
-        padding-top: clamp($padding-top-calc, $padding-top-calc, $padding-top-calc);
-        padding-bottom: clamp(104px, 9.6vh, 9.6vh);
+        padding-top: 170px;
+        padding-bottom: 104px;
+        ;
         width: 100%;
         box-sizing: border-box !important;
 

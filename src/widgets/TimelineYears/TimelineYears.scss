@@ -1,5 +1,11 @@
 .timeline-years {
     position: absolute;
+    display: flex;
+    justify-content: space-between;
     top: 400px;
-    left: 217px;
+    left: 0;
+    right: 0;
+    padding-left: 217px;
+    padding-right: 250px;
+    // left: 217px;
 }
