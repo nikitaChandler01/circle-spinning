@@ -1,1 +1,1 @@
-export { default as TimelineSelect } from './TimelineSelect';
+export { default as TimelineSelect } from './ui/TimelineSelect';

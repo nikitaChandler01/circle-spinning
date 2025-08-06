@@ -3,16 +3,21 @@ import gsap from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import React from 'react';
 import './TimelineSelect.scss';
-import { useTimelineMoveSelect } from './UseTimelineMoveSelect';
+import { useTimelineMoveSelect } from '../model';
 gsap.registerPlugin(MotionPathPlugin);
 
 interface ITimelineSelect {
-  currentAge: number;
+  currentAgeId: number;
+  setCurrentAgeId: (id: number) => void;
   refPath: React.RefObject<SVGCircleElement>;
 }
 
-const TimelineSelect = ({ currentAge, refPath }: ITimelineSelect) => {
-  const { onMouseEnter, onMouseLeave, onClick, dotsRef } = useTimelineMoveSelect({ currentAge, refPath });
+const TimelineSelect = ({ currentAgeId, setCurrentAgeId, refPath }: ITimelineSelect) => {
+  const { onMouseEnter, onMouseLeave, onClick, dotsRef } = useTimelineMoveSelect({
+    currentAgeId,
+    setCurrentAgeId,
+    refPath,
+  });
 
   return (
     <div style={{ height: 0 }}>
