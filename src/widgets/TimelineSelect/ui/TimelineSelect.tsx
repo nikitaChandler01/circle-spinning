@@ -34,9 +34,9 @@ const TimelineSelect = ({ currentAgeId, setCurrentAgeId, refPath }: ITimelineSel
             onMouseEnter={() => onMouseEnter(item.id)}
             onMouseLeave={() => onMouseLeave(item.id)}
           >
-            {item.id}
+            <div>{item.id}</div>
             <AppearingDisappearingText
-              text={item.startYear.toString()}
+              text={item.title}
               isVisible={item.id === currentAgeId}
               duration={rotationCircleDuration - 0.2}
               delay={rotationCircleDuration + 0.2}

@@ -1,6 +1,5 @@
 import React from 'react';
 import './PageGrid.scss';
-import { Circle } from '@shared/ui/Circle';
 
 interface IPageGrid {
   circleRef: React.RefObject<SVGCircleElement>;
