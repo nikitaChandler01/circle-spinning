@@ -24,8 +24,8 @@ export const decreaseTarget = (increasingElem: HTMLDivElement | null) =>
   gsap.to(increasingElem, decreasedSelectedItemStyles);
 
 export const moveForPath = ({ path, elements, startPoint, endPoint, duration = 0, ease }: IMoveForPath) => {
-  const totalPoints = 6;
-  const phaseShift = 1 / 6; // это фазовый сдвиг на 60 градусов 1/6 окружности
+  const totalPoints = elements.length;
+  const phaseShift = 1 / totalPoints; // это фазовый сдвиг на 60 градусов 1/6 окружности
 
   return gsap.to(elements, {
     motionPath: {
