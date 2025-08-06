@@ -8,6 +8,7 @@ $padding-top-calc: calc((170 / 1080) * 100vh);
     position: relative;
 
     &__widgets-wrapper {
+        position: relative;
         display: flex;
         flex-direction: column;
         gap: 393px;
