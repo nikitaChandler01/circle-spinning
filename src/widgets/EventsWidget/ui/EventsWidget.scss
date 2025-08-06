@@ -1,7 +1,6 @@
 .events-container {
     display: flex;
-    gap: 80px;
-    display: flex;
+    gap: calc(100vw * (80 / 1920));
     width: 100%;
     overflow: scroll;
 }

@@ -2,11 +2,10 @@
     position: absolute;
     display: flex;
     justify-content: space-between;
-    top: 400px;
+    top: calc(100vh * (400 / 1080));
     z-index: 11;
     left: 0;
     right: 0;
-    padding-left: 217px;
-    padding-right: 250px;
-    // left: 217px;
+    padding-left: calc(100vw * (217 / 1920));
+    padding-right: calc(100vw * (250 / 1920));
 }

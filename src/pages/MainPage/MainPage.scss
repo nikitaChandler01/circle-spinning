@@ -1,7 +1,7 @@
-$padding-top-calc: 170px;
+$padding-top-calc: calc((170 / 1080) * 100vh);
 
 .main-page {
-    height: 1080px;
+    height: 100vh;
     padding-left: calc(var(--span-size) * 4);
     padding-right: calc(var(--span-size) * 2);
     box-sizing: border-box;
@@ -11,18 +11,20 @@ $padding-top-calc: 170px;
         position: relative;
         display: flex;
         flex-direction: column;
-        gap: 393px;
-        height: 1080px;
-        padding-top: 170px;
-        padding-bottom: 104px;
-        width: 1440px;
+        gap: calc(100vh * (393 / 1080));
+        height: 100vh;
+        padding-top: calc(100vh * (170 / 1080));
+        padding-bottom: calc(100vh * (104 / 1080));
+        width: 100%;
         box-sizing: border-box !important;
 
         & svg {
             position: absolute;
+            height: calc(100vh * (530 / 1080));
+            width: calc(100vw * (530 / 1920));
             z-index: 10;
-            top: 215px;
-            left: 452px;
+            top: calc(100vh * (215 / 1080));
+            left: calc(100vw * (455 / 1920));
         }
 
 
@@ -31,7 +33,7 @@ $padding-top-calc: 170px;
     &__content {
         display: flex;
         flex-direction: column;
-        gap: 56px
+        gap: calc(100vh * 56 / 1080)
     }
 
 }
