@@ -21,7 +21,7 @@ export const useAnimatedEventsWidget = <T extends EventsMock>({
   const fadeTween = useRef<gsap.core.Tween | null>(null);
   const timeOfAnimation = 0.3;
   const [events, setEvents] = useState(mockEvents[ageId]);
-  const [title, setTitle] = useState<string>('');
+  const [title, setTitle] = useState<string>(titles[ageId]);
   const prevId = useRef<number | null>(ageId);
   useEffect(() => {
     if (prevId.current === ageId) return;
