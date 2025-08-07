@@ -1,1 +1,1 @@
-export { default as TimelineSelect } from './ui/TimelineSelect';
+export { default as TimelineSelectWrapper } from './ui/TimelineSelectWrapper';

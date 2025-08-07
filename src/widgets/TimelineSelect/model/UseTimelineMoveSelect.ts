@@ -1,9 +1,10 @@
+import { TimelineMock } from '@shared/mocks/TimelineMocks';
 import gsap from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import React, { useEffect, useRef } from 'react';
-import { decreaseTarget, increaseTarget, moveForPath } from '../service';
 import { rotationCircleDuration } from '../constants';
-import { TimelineMock } from '@shared/mocks/TimelineMocks';
+import { decreaseTarget, increaseTarget, moveForPath } from '../service';
+import useResize from '@shared/lib/useResize';
 gsap.registerPlugin(MotionPathPlugin);
 
 interface IUseTimelineMoveSelect<T> {
@@ -19,11 +20,11 @@ export const useTimelineMoveSelect = <T extends TimelineMock>({
   refPath,
   timelineAges,
 }: IUseTimelineMoveSelect<T>) => {
+  const isMobile = useResize({ maxWidth: 320 });
   const firstId = timelineAges[0].id;
   const orbitAnim = useRef<gsap.core.Tween | null>(null);
   const dotsRef = useRef<Record<string | number, HTMLDivElement | null>>({});
   const prevId = useRef<number | null>(null);
-
   useEffect(() => {
     if (refPath.current && currentAgeId) {
       if (orbitAnim?.current) {
@@ -48,7 +49,7 @@ export const useTimelineMoveSelect = <T extends TimelineMock>({
       prevId.current = currentAgeId;
       decreaseTarget(dotsRef.current[currentAgeId]);
     };
-  }, [currentAgeId]);
+  }, [currentAgeId, isMobile]);
 
   const onClick = (id: number) => {
     setCurrentAgeId(id);

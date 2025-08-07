@@ -3,7 +3,7 @@ import { Circle } from '@shared/ui/Circle';
 import { HighlightTitle } from '@shared/ui/Typography/HighlightTitle';
 import { EventsWidget } from '@widgets/EventsWidget';
 import { TimelineControllerWidget } from '@widgets/TimelineControllerWidget';
-import { TimelineSelect } from '@widgets/TimelineSelect';
+import { TimelineSelectWrapper } from '@widgets/TimelineSelect';
 import { TimelineYears } from '@widgets/TimelineYears';
 import { useRef, useState } from 'react';
 import './MainPage.scss';
@@ -16,7 +16,7 @@ const MainPage = () => {
   const ageId = TIMELINE_MOCKS[currentAge - 1].id;
   return (
     <div className="main-page">
-      <TimelineSelect
+      <TimelineSelectWrapper
         timelineAges={TIMELINE_MOCKS}
         refPath={circleRef}
         currentAgeId={currentAge}

@@ -1,3 +1,4 @@
+import { TimelineMock } from '@shared/mocks/TimelineMocks';
 import { AppearingDisappearingText } from '@shared/ui/Typography/AppearingDisappearingText';
 import gsap from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
@@ -5,7 +6,6 @@ import React from 'react';
 import { rotationCircleDuration } from '../constants';
 import { useTimelineMoveSelect } from '../model';
 import './TimelineSelect.scss';
-import { TimelineMock } from '@shared/mocks/TimelineMocks';
 gsap.registerPlugin(MotionPathPlugin);
 
 interface ITimelineSelect<T> {
