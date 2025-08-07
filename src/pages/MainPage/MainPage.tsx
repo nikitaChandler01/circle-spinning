@@ -8,6 +8,7 @@ import { TimelineYears } from '@widgets/TimelineYears';
 import { useRef, useState } from 'react';
 import './MainPage.scss';
 import PageGrid from './PageGrid';
+import useResize from '@shared/lib/useResize';
 
 const MainPage = () => {
   const pageTitle = 'Исторические \n даты';

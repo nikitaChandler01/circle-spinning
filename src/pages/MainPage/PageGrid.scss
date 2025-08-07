@@ -2,11 +2,12 @@
 $border-value: 1px solid rgba(0, 0, 0, 0.10);
 
 .grid-box-container {
+
+
     position: absolute;
     top: 0;
     bottom: 0;
     height: calc(100vh - 2px);
-    border-collapse: collapse;
     pointer-events: none;
     width: calc(100% - var(--span-size) * 6);
     border-left: $border-value;
@@ -33,8 +34,18 @@ $border-value: 1px solid rgba(0, 0, 0, 0.10);
             border-right: $border-value;
         }
     }
+
+    @media (max-width: 320px) {
+        position: relative;
+        display: none;
+    }
 }
 
 .default-grid-box {
     width: 50%;
+
+    @media (max-width: 320px) {
+        position: relative;
+        display: none;
+    }
 }

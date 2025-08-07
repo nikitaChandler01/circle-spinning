@@ -10,4 +10,9 @@
     @include mixin.vw(217, "padding-left");
     @include mixin.vw(250, "padding-right");
     @include mixin.vh(400, "top");
+
+    @media (max-width: 320px) {
+        font-size: 20px;
+    }
+
 }

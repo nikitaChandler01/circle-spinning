@@ -4,8 +4,15 @@
     height: 100vh;
     padding-left: calc(var(--span-size) * 4);
     padding-right: calc(var(--span-size) * 2);
+
+
     box-sizing: border-box;
     position: relative;
+
+    @media (max-width: 320px) {
+        padding-left: 20px;
+        padding-right: 27px;
+    }
 
     &__widgets-wrapper {
         @include mixins.vh(393, "gap");
@@ -19,6 +26,12 @@
         width: 100%;
         box-sizing: border-box !important;
 
+        @media (max-width: 320px) {
+            padding-top: 60px;
+            padding-bottom: 14px;
+        }
+
+
         & svg {
             @include mixins.vh(530, "height");
             @include mixins.vw(530, "width");
@@ -26,6 +39,12 @@
             @include mixins.vw(455, "left");
             position: absolute;
             z-index: 10;
+
+            @media (max-width: 320px) {
+                & {
+                    display: none !important;
+                }
+            }
         }
 
 
