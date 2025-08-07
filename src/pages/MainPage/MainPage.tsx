@@ -8,6 +8,7 @@ import { TimelineYears } from '@widgets/TimelineYears';
 import { useRef, useState } from 'react';
 import './MainPage.scss';
 import PageGrid from './PageGrid';
+import { EVENTS_MOCKS } from '@shared/mocks/EventsMocks';
 
 const MainPage = () => {
   const pageTitle = 'Исторические \n даты';
@@ -15,6 +16,7 @@ const MainPage = () => {
   const [currentAgeId, setCurrentAgeId] = useState<number>(1);
   const ageId = TIMELINE_MOCKS[currentAgeId - 1].id;
   const ageTitle = TIMELINE_MOCKS[currentAgeId - 1].title;
+  const titles: Record<number, string> = TIMELINE_MOCKS.reduce((acc, item) => ({ ...acc, [item.id]: item.title }), {});
   return (
     <div className="main-page">
       <TimelineSelectWrapper
@@ -34,7 +36,13 @@ const MainPage = () => {
             currentAge={currentAgeId}
             setCurrentAge={setCurrentAgeId}
           />
-          <EventsWidget ageTitle={ageTitle} ageId={ageId} setCurrentAgeId={setCurrentAgeId} />
+          <EventsWidget
+            titles={titles}
+            events={EVENTS_MOCKS}
+            ageTitle={ageTitle}
+            ageId={ageId}
+            setCurrentAgeId={setCurrentAgeId}
+          />
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ interface Event {
   eventDesc: string;
 }
 
-interface EventsMock {
+export interface EventsMock {
   [idOfTimeline: number]: Event[];
 }
 export const EVENTS_MOCKS: EventsMock = {
