@@ -13,13 +13,11 @@
             font-weight: 600;
             display: block;
             position: absolute;
-            top: -20px
+            top: -40px
         }
     }
 
-    @media (max-width: 320px) {
-        padding-top: 20px;
-    }
+
 
     &__divider {
         opacity: 20;
