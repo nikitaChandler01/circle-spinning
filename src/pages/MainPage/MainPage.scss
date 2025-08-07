@@ -1,4 +1,4 @@
-$padding-top-calc: calc((170 / 1080) * 100vh);
+@use '/src/mixins' as mixins;
 
 .main-page {
     height: 100vh;
@@ -8,33 +8,33 @@ $padding-top-calc: calc((170 / 1080) * 100vh);
     position: relative;
 
     &__widgets-wrapper {
+        @include mixins.vh(393, "gap");
+        @include mixins.vh(170, "padding-top");
+        @include mixins.vh(104, "padding-bottom");
         position: relative;
         display: flex;
         flex-direction: column;
-        gap: calc(100vh * (393 / 1080));
         justify-content: space-between;
         height: 100vh;
-        padding-top: calc(100vh * (170 / 1080));
-        padding-bottom: calc(100vh * (104 / 1080));
         width: 100%;
         box-sizing: border-box !important;
 
         & svg {
+            @include mixins.vh(530, "height");
+            @include mixins.vw(530, "width");
+            @include mixins.vh(215, "top");
+            @include mixins.vw(455, "left");
             position: absolute;
-            height: calc(100vh * (530 / 1080));
-            width: calc(100vw * (530 / 1920));
             z-index: 10;
-            top: calc(100vh * (215 / 1080));
-            left: calc(100vw * (455 / 1920));
         }
 
 
     }
 
     &__content {
+        @include mixins.vh(56, "gap");
         display: flex;
         flex-direction: column;
-        gap: calc(100vh * 56 / 1080)
     }
 
 }

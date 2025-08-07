@@ -1,11 +1,13 @@
+@use "/src/mixins" as mixin;
+
 .timeline-years {
     position: absolute;
     display: flex;
     justify-content: space-between;
-    top: calc(100vh * (400 / 1080));
     z-index: 11;
     left: 0;
     right: 0;
-    padding-left: calc(100vw * (217 / 1920));
-    padding-right: calc(100vw * (250 / 1920));
+    @include mixin.vw(217, "padding-left");
+    @include mixin.vw(250, "padding-right");
+    @include mixin.vh(400, "top");
 }

@@ -1,3 +1,4 @@
+@use '/src/mixins' as mixins;
 $border-value: 1px solid rgba(0, 0, 0, 0.10);
 
 .grid-box-container {
@@ -12,20 +13,21 @@ $border-value: 1px solid rgba(0, 0, 0, 0.10);
     border-right: $border-value;
 
     &__upper {
+        @include mixins.vh(480, "height");
         display: flex;
         border-bottom: $border-value;
-        height: calc(100vh * (480 / 1080));
 
         & .default-grid-box:first-child {
+            @include mixins.vw(720, "width");
             border-right: $border-value;
             position: relative;
-            width: calc(100vw * (720 / 1920));
         }
     }
 
     &__down {
+        @include mixins.vh(600, "height");
+        height: calc(var(--height) - 1px);
         display: flex;
-        height: calc(100vh * (600 / 1080) - 1px);
 
         & .default-grid-box:first-child {
             border-right: $border-value;

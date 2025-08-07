@@ -1,8 +1,10 @@
+@use "/src/mixins" as mixin;
+
 .transparent-card {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: calc(100vh * (15 / 1080));
+    @include mixin.vh(15, "gap");
 
     &:nth-child(2n) {}
 
@@ -12,11 +14,11 @@
         font-weight: 400;
         padding: 0;
         margin: 0;
-        font-size: calc(100vw * (25 / 1920));
+        @include mixin.vw(25, "font-size");
         color: var(--blue);
     }
 
     &__content {
-        font-size: calc(100vw * (20 / 1920));
+        @include mixin.vw(20, "font-size");
     }
 }

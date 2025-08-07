@@ -1,3 +1,5 @@
+@use "/src/mixins" as mixin;
+
 .timeline-option {
     position: relative;
     z-index: 11;
@@ -17,8 +19,8 @@
 
     & .appearing-disappearing-text {
         position: absolute;
-        font-size: calc(100vw * (20 / 1920));
-        left: 8px;
+        @include mixin.vw(20, "font-size");
+        left: 10px;
         top: 50%;
         transform: translateY(-50%) scale(0.125);
         transform-origin: left center;

@@ -1,3 +1,5 @@
+@use "/src/mixins" as mixin;
+
 .highlight-title {
     display: flex;
 
@@ -13,7 +15,7 @@
         padding: 0;
         text-wrap: wrap;
         margin-left: var(--span-size);
-        font-size: calc(100vw * (56 / 1920));
+        @include mixin.vw(56, "font-size");
         line-height: 120%;
     }
 }

@@ -1,0 +1,20 @@
+// @mixin vh($size, $property) {
+//     $design-height: 1080;
+//     #{$property}: calc(100vh * (#{$size} / #{$design-height}));
+// }
+
+// @mixin vw($size, $property) {
+//     $design-width: 1920;
+//     #{$property}: calc(100vw * (#{$size} / #{$design-width}));
+// }
+@mixin vh($size, $property) {
+    $design-height: 1080;
+    --#{$property}: calc(100vh * (#{$size} / #{$design-height}));
+    #{$property}: var(--#{$property});
+}
+
+@mixin vw($size, $property) {
+    $design-height: 1920;
+    --#{$property}: calc(100vw * (#{$size} / #{$design-height}));
+    #{$property}: var(--#{$property});
+}

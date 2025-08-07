@@ -1,6 +1,8 @@
+@use "/src/mixins" as mixin;
+
 .events-container {
+    @include mixin.vw(80, "gap");
     display: flex;
-    gap: calc(100vw * (80 / 1920));
     width: 100%;
     overflow: scroll;
 }

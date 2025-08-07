@@ -1,9 +1,10 @@
+@use "/src/mixins" as mixin;
 $position-of-buttons: calc(var(--span-size) / 4);
 $buttons-size: calc(var(--span-size) / 2);
 
 .swiper {
     width: 100%;
-    min-height: 12.5vh;
+    @include mixin.vh(135, "min-height");
     padding: 0 var(--span-size);
     box-sizing: border-box !important;
     position: relative;
@@ -51,7 +52,7 @@ $buttons-size: calc(var(--span-size) / 2);
     &-button-prev {
         cursor: pointer;
         margin-top: 0;
-        top: 41px;
+        @include mixin.vh(41, "top");
         width: $buttons-size;
         height: $buttons-size;
         border-radius: 50%;

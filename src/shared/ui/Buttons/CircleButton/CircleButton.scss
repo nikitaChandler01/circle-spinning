@@ -1,5 +1,7 @@
+@use "/src/mixins" as mixin;
+
 .circle-button {
-    width: calc(100vw * (50 / 1920));
+    @include mixin.vw(50, "width");
     aspect-ratio: 1;
     border-radius: 50%;
     border: 1px solid var(--font-color-transparent);
@@ -14,7 +16,7 @@
 
     &--next::after,
     &--prev::after {
-        content: url('../../../../assets/Arrow.svg');
+        content: url('/src/assets/Arrow.svg');
         height: 12.5px;
         width: 6.25px;
         font-size: 0;
