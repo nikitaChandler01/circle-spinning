@@ -73,16 +73,9 @@ $buttons-size: calc(var(--span-size) / 2);
         &-prev {
             @media (max-width: 320px) {
                 position: relative;
+                opacity: 40%;
+                transition: all 0.3s ease-in-out;
 
-                &::after {
-                    content: "";
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(255, 255, 255, 0.40);
-                    top: 0;
-                    left: 0;
-                }
             }
         }
 
