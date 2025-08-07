@@ -6,7 +6,7 @@
     &__gradient-box {
         background: linear-gradient(to bottom, var(--blue) 0%, var(--pink) 100%);
         height: 100%;
-        width: 5px;
+        @include mixin.vw(5, "width")
     }
 
     &__text {
