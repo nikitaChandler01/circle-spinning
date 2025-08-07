@@ -2,13 +2,17 @@
 
 .timeline-control {
     display: flex;
-    flex-direction: column;
     padding: 0 var(--span-size);
+    position: relative;
+
 
     @media (max-width: 320px) {
         position: absolute;
         bottom: 0;
         padding: 0;
+        width: 100%;
+        align-items: center;
+
     }
 
     & p {
@@ -26,6 +30,17 @@
     &__buttons {
         display: flex;
         @include mixin.vw(20, "gap");
+    }
+
+    &__pagination {
+        position: absolute;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+
+        @media (min-width: 321px) {
+            display: none;
+        }
     }
 
 }

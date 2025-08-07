@@ -1,0 +1,25 @@
+@use "/src/mixins" as mixin;
+
+
+.dot-pagination-container {
+    display: flex;
+    gap: 10px;
+
+}
+
+.dot-pagination-item {
+    width: 6px;
+    height: 6px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    opacity: 40%;
+    background: var(--font-color);
+    transition: all 0.4s ease;
+
+    &--active {
+        opacity: 1;
+    }
+
+
+
+}
