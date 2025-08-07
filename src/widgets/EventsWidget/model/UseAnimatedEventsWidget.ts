@@ -1,3 +1,4 @@
+import useResize from '@shared/lib/useResize';
 import { EventsMock } from '@shared/mocks/EventsMocks';
 import gsap from 'gsap';
 import { useEffect, useRef, useState } from 'react';
@@ -15,6 +16,7 @@ export const useAnimatedEventsWidget = <T extends EventsMock>({
   mockEvents,
   titles,
 }: IUseAnimatedEventsWidget<T>) => {
+  const isMobile = useResize({ maxWidth: 320 });
   const containerRef = useRef<HTMLDivElement>(null);
   const fadeTween = useRef<gsap.core.Tween | null>(null);
   const timeOfAnimation = 0.3;
@@ -26,7 +28,7 @@ export const useAnimatedEventsWidget = <T extends EventsMock>({
     fadeTween.current?.kill();
     fadeTween.current = gsap.to(containerRef.current, {
       opacity: 0,
-      y: 20,
+      y: isMobile ? 20 : undefined,
       duration: timeOfAnimation,
       onComplete: () => {
         setCurrentAgeId(ageId);
@@ -34,7 +36,7 @@ export const useAnimatedEventsWidget = <T extends EventsMock>({
         setEvents(mockEvents[ageId]);
         fadeTween.current = gsap.fromTo(
           containerRef.current,
-          { opacity: 0, y: 20 },
+          { opacity: 0, y: isMobile ? 20 : undefined },
           { opacity: 1, duration: timeOfAnimation, y: 0 },
         );
       },
