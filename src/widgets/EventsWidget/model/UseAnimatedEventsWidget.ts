@@ -2,6 +2,7 @@ import useResize from '@shared/lib/useResize';
 import { EventsMock } from '@shared/mocks/EventsMocks';
 import gsap from 'gsap';
 import { useEffect, useRef, useState } from 'react';
+import { SwiperRef } from 'swiper/react';
 
 interface IUseAnimatedEventsWidget<T> {
   mockEvents: T;
@@ -16,6 +17,7 @@ export const useAnimatedEventsWidget = <T extends EventsMock>({
   mockEvents,
   titles,
 }: IUseAnimatedEventsWidget<T>) => {
+  const swiperRef = useRef<SwiperRef | null>(null);
   const isMobile = useResize({ maxWidth: 320 });
   const containerRef = useRef<HTMLDivElement>(null);
   const fadeTween = useRef<gsap.core.Tween | null>(null);
@@ -31,6 +33,7 @@ export const useAnimatedEventsWidget = <T extends EventsMock>({
       y: isMobile ? 20 : undefined,
       duration: timeOfAnimation,
       onComplete: () => {
+        if (swiperRef?.current) swiperRef.current.swiper.slideTo(0);
         setCurrentAgeId(ageId);
         setTitle(titles[ageId]);
         setEvents(mockEvents[ageId]);
@@ -53,5 +56,6 @@ export const useAnimatedEventsWidget = <T extends EventsMock>({
     events,
     title,
     timeOfAnimation,
+    swiperRef,
   };
 };

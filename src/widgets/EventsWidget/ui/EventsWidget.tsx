@@ -18,13 +18,19 @@ const EventsWidget = <T extends EventsMock>({
   ageId,
   events: mockEvents,
 }: IEventsWidget<T>) => {
-  const { containerRef, events, title } = useAnimatedEventsWidget({ ageId, setCurrentAgeId, mockEvents, titles });
+  const { containerRef, events, title, swiperRef } = useAnimatedEventsWidget({
+    ageId,
+    setCurrentAgeId,
+    mockEvents,
+    titles,
+  });
 
   return (
     <div className="events" ref={containerRef}>
       <div className="events__title">{title}</div>
       <div className="events__divider" />
       <Carousel
+        swiperRef={swiperRef}
         items={events}
         itemRenderer={(item) => <TransparentCard title={`${item.year}`} content={item.eventDesc} />}
       />
