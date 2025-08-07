@@ -12,28 +12,29 @@ import PageGrid from './PageGrid';
 const MainPage = () => {
   const pageTitle = 'Исторические \n даты';
   const circleRef = useRef<SVGCircleElement>(null);
-  const [currentAge, setCurrentAge] = useState<number>(1);
-  const ageId = TIMELINE_MOCKS[currentAge - 1].id;
+  const [currentAgeId, setCurrentAgeId] = useState<number>(1);
+  const ageId = TIMELINE_MOCKS[currentAgeId - 1].id;
+  const ageTitle = TIMELINE_MOCKS[currentAgeId - 1].title;
   return (
     <div className="main-page">
       <TimelineSelectWrapper
         timelineAges={TIMELINE_MOCKS}
         refPath={circleRef}
-        currentAgeId={currentAge}
-        setCurrentAgeId={setCurrentAge}
+        currentAgeId={currentAgeId}
+        setCurrentAgeId={setCurrentAgeId}
       />
       <PageGrid circleRef={circleRef} />
       <div className="main-page__widgets-wrapper">
         <HighlightTitle text={pageTitle} />
         <Circle strokeOpacity={0.2} forwardRef={circleRef} />
-        <TimelineYears timelineAges={TIMELINE_MOCKS} currentAge={currentAge} />
+        <TimelineYears timelineAges={TIMELINE_MOCKS} currentAge={currentAgeId} />
         <div className="main-page__content">
           <TimelineControllerWidget
             timelineAges={TIMELINE_MOCKS}
-            currentAge={currentAge}
-            setCurrentAge={setCurrentAge}
+            currentAge={currentAgeId}
+            setCurrentAge={setCurrentAgeId}
           />
-          <EventsWidget ageId={ageId} />
+          <EventsWidget ageTitle={ageTitle} ageId={ageId} setCurrentAgeId={setCurrentAgeId} />
         </div>
       </div>
     </div>

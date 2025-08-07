@@ -3,10 +3,11 @@ import gsap from 'gsap';
 import { useEffect, useRef, useState } from 'react';
 
 interface IUseAnimatedEventsWidget {
+  setCurrentAgeId: (item: number) => void;
   ageId: number;
 }
 
-export const useAnimatedEventsWidget = ({ ageId }: IUseAnimatedEventsWidget) => {
+export const useAnimatedEventsWidget = ({ ageId, setCurrentAgeId: set }: IUseAnimatedEventsWidget) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const fadeTween = useRef<gsap.core.Tween | null>(null);
   const timeOfAnimation = 0.3;
@@ -20,6 +21,7 @@ export const useAnimatedEventsWidget = ({ ageId }: IUseAnimatedEventsWidget) => 
       opacity: 0,
       duration: timeOfAnimation,
       onComplete: () => {
+        set(ageId);
         setCurrentAgeId(ageId);
         setEvents(EVENTS_MOCKS[ageId]);
         fadeTween.current = gsap.fromTo(
@@ -38,5 +40,6 @@ export const useAnimatedEventsWidget = ({ ageId }: IUseAnimatedEventsWidget) => 
   return {
     containerRef,
     events,
+    timeOfAnimation,
   };
 };

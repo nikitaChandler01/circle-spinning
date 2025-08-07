@@ -1,15 +1,28 @@
 @use "/src/mixins" as mixin;
 
 .events {
+    gap: 14px;
+    display: flex;
+    flex-direction: column;
     position: relative;
+
+    &__title {
+        display: none;
+
+        @media (max-width: 320px) {
+            font-weight: 600;
+            display: block;
+            position: absolute;
+            top: -20px
+        }
+    }
 
     @media (max-width: 320px) {
         padding-top: 20px;
     }
 
-    &-divider {
+    &__divider {
         opacity: 20;
-        position: absolute;
         width: 100%;
         height: 1px;
         top: 0;
