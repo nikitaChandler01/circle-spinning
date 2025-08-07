@@ -1,4 +1,4 @@
-interface TimelineMock {
+export interface TimelineMock {
   id: number;
   startYear: number;
   endYear: number;

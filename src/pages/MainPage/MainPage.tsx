@@ -16,14 +16,23 @@ const MainPage = () => {
   const ageId = TIMELINE_MOCKS[currentAge - 1].id;
   return (
     <div className="main-page">
-      <TimelineSelect refPath={circleRef} currentAgeId={currentAge} setCurrentAgeId={setCurrentAge} />
+      <TimelineSelect
+        timelineAges={TIMELINE_MOCKS}
+        refPath={circleRef}
+        currentAgeId={currentAge}
+        setCurrentAgeId={setCurrentAge}
+      />
       <PageGrid circleRef={circleRef} />
       <div className="main-page__widgets-wrapper">
         <HighlightTitle text={pageTitle} />
         <Circle strokeOpacity={0.2} forwardRef={circleRef} />
-        <TimelineYears currentAge={currentAge} />
+        <TimelineYears timelineAges={TIMELINE_MOCKS} currentAge={currentAge} />
         <div className="main-page__content">
-          <TimelineControllerWidget currentAge={currentAge} setCurrentAge={setCurrentAge} />
+          <TimelineControllerWidget
+            timelineAges={TIMELINE_MOCKS}
+            currentAge={currentAge}
+            setCurrentAge={setCurrentAge}
+          />
           <EventsWidget ageId={ageId} />
         </div>
       </div>

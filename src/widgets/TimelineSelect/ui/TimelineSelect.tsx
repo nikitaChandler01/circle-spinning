@@ -1,4 +1,3 @@
-import { TIMELINE_MOCKS } from '@shared/mocks/TimelineMocks';
 import { AppearingDisappearingText } from '@shared/ui/Typography/AppearingDisappearingText';
 import gsap from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
@@ -6,24 +5,32 @@ import React from 'react';
 import { rotationCircleDuration } from '../constants';
 import { useTimelineMoveSelect } from '../model';
 import './TimelineSelect.scss';
+import { TimelineMock } from '@shared/mocks/TimelineMocks';
 gsap.registerPlugin(MotionPathPlugin);
 
-interface ITimelineSelect {
+interface ITimelineSelect<T> {
   currentAgeId: number;
   setCurrentAgeId: (id: number) => void;
   refPath: React.RefObject<SVGCircleElement>;
+  timelineAges: T[];
 }
 
-const TimelineSelect = ({ currentAgeId, setCurrentAgeId, refPath }: ITimelineSelect) => {
+const TimelineSelect = <T extends TimelineMock>({
+  currentAgeId,
+  setCurrentAgeId,
+  refPath,
+  timelineAges,
+}: ITimelineSelect<T>) => {
   const { onMouseEnter, onMouseLeave, onClick, dotsRef } = useTimelineMoveSelect({
     currentAgeId,
     setCurrentAgeId,
     refPath,
+    timelineAges,
   });
 
   return (
     <div style={{ height: 0 }}>
-      {TIMELINE_MOCKS.map((item, i) => (
+      {timelineAges.map((item, i) => (
         <div key={item.id}>
           <div
             ref={(el) => (dotsRef.current[item.id] = el)}

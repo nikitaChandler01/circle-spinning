@@ -1,16 +1,15 @@
-import { TIMELINE_MOCKS } from '@shared/mocks/TimelineMocks';
 import { CircleButton } from '@shared/ui/Buttons/CircleButton';
 import { TextCounter } from '@shared/ui/Typography/TextCounter';
 import './TimelineControllerWidget.scss';
 
-interface ITimelineControllerWidget {
+interface ITimelineControllerWidget<T> {
   currentAge: number;
   setCurrentAge: (age: number) => void;
+  timelineAges: T[];
 }
 
-const TimelineControllerWidget = ({ currentAge, setCurrentAge }: ITimelineControllerWidget) => {
-  const maxCount = TIMELINE_MOCKS.length;
-
+const TimelineControllerWidget = <T,>({ currentAge, setCurrentAge, timelineAges }: ITimelineControllerWidget<T>) => {
+  const maxCount = timelineAges.length;
   const onCickNext = () => {
     const newCurrentAge = currentAge + 1;
     setCurrentAge(newCurrentAge > maxCount ? 1 : newCurrentAge);
