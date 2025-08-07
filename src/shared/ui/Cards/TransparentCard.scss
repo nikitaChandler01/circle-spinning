@@ -20,5 +20,16 @@
 
     &__content {
         @include mixin.vw(20, "font-size");
+
+    }
+
+    @media (max-width: 320px) {
+        &__title {
+            font-size: 18px;
+        }
+
+        &__content {
+            font-size: 14px;
+        }
     }
 }

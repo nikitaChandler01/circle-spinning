@@ -5,11 +5,22 @@
     flex-direction: column;
     padding: 0 var(--span-size);
 
+    @media (max-width: 320px) {
+        position: absolute;
+        bottom: 0;
+        padding: 0;
+    }
 
     & p {
         margin: 0;
         @include mixin.vw(14, "font-size");
         @include mixin.vw(20, "margin-bottom");
+
+        @media (max-width: 320px) {
+            font-size: 14px;
+        }
+
+
     }
 
     &__buttons {

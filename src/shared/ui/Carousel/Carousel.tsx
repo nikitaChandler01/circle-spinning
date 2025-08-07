@@ -5,6 +5,7 @@ import 'swiper/css/pagination';
 import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import './Carousel.scss';
+import useResize from '@shared/lib/useResize';
 
 interface ICarousel<T> {
   items: T[];
@@ -12,11 +13,13 @@ interface ICarousel<T> {
 }
 
 const Carousel = <T,>({ items, itemRenderer }: ICarousel<T>) => {
+  const isMobile = useResize({ maxWidth: 320 });
+
   return (
     <Swiper
       className="my-carousel"
-      navigation={true}
       slidesPerView={'auto'}
+      pagination={isMobile}
       modules={[Navigation, Pagination, Mousewheel, Keyboard]}
     >
       {items.map((item, index) => (

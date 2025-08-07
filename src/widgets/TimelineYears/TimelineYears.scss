@@ -12,7 +12,14 @@
     @include mixin.vh(400, "top");
 
     @media (max-width: 320px) {
-        font-size: 20px;
+        padding: 0;
+        position: relative;
+        top: unset;
+
+
+        & .odometer-counter {
+            font-size: 56px;
+        }
     }
 
 }

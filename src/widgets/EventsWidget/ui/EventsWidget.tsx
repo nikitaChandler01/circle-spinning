@@ -11,7 +11,7 @@ const EventsWidget = ({ ageId }: IEventsWidget) => {
   const { containerRef, events } = useAnimatedEventsWidget({ ageId });
 
   return (
-    <div ref={containerRef}>
+    <div className="events-container " ref={containerRef}>
       <Carousel
         items={events}
         itemRenderer={(item) => <TransparentCard title={`${item.year}`} content={item.eventDesc} />}

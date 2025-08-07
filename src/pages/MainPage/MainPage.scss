@@ -27,6 +27,8 @@
         box-sizing: border-box !important;
 
         @media (max-width: 320px) {
+            justify-content: start;
+            gap: 60px;
             padding-top: 60px;
             padding-bottom: 14px;
         }
@@ -54,6 +56,11 @@
         @include mixins.vh(56, "gap");
         display: flex;
         flex-direction: column;
+        position: relative;
+
+        @media (max-width: 320px) {
+            flex: 1;
+        }
     }
 
 }

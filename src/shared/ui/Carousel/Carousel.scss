@@ -9,6 +9,23 @@ $buttons-size: calc(var(--span-size) / 2);
     box-sizing: border-box !important;
     position: relative;
 
+    @media (max-width: 320px) {
+        height: fit-content;
+        padding: 0;
+        position: unset;
+
+        &-slide {
+            margin-right: 25px;
+            width: 170px !important;
+
+
+            &:nth-child(2n) {
+                width: 250px !important;
+            }
+        }
+
+    }
+
     &::after,
     &::before {
         content: '';
@@ -19,6 +36,10 @@ $buttons-size: calc(var(--span-size) / 2);
         background-color: var(--bg-creamy);
         z-index: 5;
         pointer-events: none;
+
+        @media (max-width: 320px) {
+            display: none !important;
+        }
     }
 
     &::before {
@@ -37,6 +58,7 @@ $buttons-size: calc(var(--span-size) / 2);
         &:active {
             cursor: grabbing;
         }
+
     }
 
     &-slide {
@@ -46,6 +68,24 @@ $buttons-size: calc(var(--span-size) / 2);
         &:nth-child(2n) {
             width: calc(var(--span-size) * 5);
         }
+
+        &-next,
+        &-prev {
+            @media (max-width: 320px) {
+                position: relative;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(255, 255, 255, 0.40);
+                    top: 0;
+                    left: 0;
+                }
+            }
+        }
+
     }
 
     & &-button-next,
@@ -63,6 +103,13 @@ $buttons-size: calc(var(--span-size) / 2);
         position: absolute;
         z-index: 10;
         box-shadow: 0 0 15px rgba(var(--blue), 0.1);
+
+        @media (max-width: 320px) {
+            display: none !important;
+            width: 0;
+            height: 0;
+            cursor: none;
+        }
 
     }
 
@@ -91,4 +138,7 @@ $buttons-size: calc(var(--span-size) / 2);
     &-button-next {
         right: $position-of-buttons;
     }
+
+
+
 }
