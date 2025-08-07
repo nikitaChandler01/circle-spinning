@@ -4,7 +4,7 @@
 
 ## Запуск проекта
 
-Перед запуском убедитесь, что на вашей ОС установлен [Node.js](https://nodejs.org/en/download/current){ :target="_blank" }
+Перед запуском убедитесь, что на вашей ОС установлен [Node.js](https://nodejs.org/en/download/current)
 
 Чтобы запустить проект необходимо:
 
