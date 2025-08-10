@@ -20,7 +20,7 @@
     "start": "webpack serve -- --env mode=development port=3000",
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production",
-    "build": "react-scripts build",
+    "build": "webpack --env mode=development",
     "eject": "react-scripts eject",
     "lint": "eslint ./src --ext .ts",
     "lint:fix": "eslint ./src --ext .ts --fix"
