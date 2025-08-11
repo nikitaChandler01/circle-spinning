@@ -17,7 +17,7 @@ const Circle = ({ forwardRef, strokeOpacity = 0.2, strokeWidth = 1, radius = 265
     >
       <path
         ref={forwardRef}
-        d={`M ${radius},${radius - radius} 
+        d={`M ${radius},${radius - radius + strokeWidth / 2} 
       a ${radius},${radius} 0 0,1 0,${2 * radius} 
       a ${radius},${radius} 0 0,1 0,${-2 * radius}`}
         strokeOpacity={strokeOpacity}
