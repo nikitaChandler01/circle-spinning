@@ -11,7 +11,7 @@ interface ICircle {
 const Circle = ({ forwardRef, strokeOpacity = 0.2, strokeWidth = 1, radius = 265, color = 'black' }: ICircle) => {
   return (
     <svg
-      viewBox={`0 0 ${radius * 2} ${radius * 2}`}
+      viewBox={`0 0 ${radius * 2 + strokeWidth * 2} ${radius * 2 + strokeWidth * 2}`}
       xmlns="http://www.w3.org/2000/svg"
       style={{ position: 'absolute' }}
     >
